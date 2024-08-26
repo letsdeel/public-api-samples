@@ -25,6 +25,6 @@ app.get('/api/people/:id', async (req, res) => {
 });
 
 const port = 3099;
-app.listen(3099,() => {
-    console.log(`Server is listening on port ${3099}`)
+app.listen(port,() => {
+    console.log(`Server is listening on port ${port}`);
 });
