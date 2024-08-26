@@ -1,0 +1,19 @@
+{
+  "name": "list-people",
+  "version": "1.0.0",
+  "description": "Simple Create React App using Deel's API to retrieve list of people and the details.",
+  "main": "index.js",
+  "scripts": {
+    "install-client": "cd client && npm install",
+    "install-server": "cd server && npm install",
+    "start-client": "cd client && npm start",
+    "start-server": "cd server && npm start",
+    "setup": "concurrently \"npm run install-client\" \"npm run install-server\"",
+    "start": "concurrently \"npm run start-client\" \"npm run start-server\""
+  },
+  "author": "Deel",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
