@@ -60,7 +60,7 @@ More info:
 
 After installing Node.js and retrieving a valid token, you can install the dependencies:
 
-1. Open up a command-line window and navigate to to the sample folder `samples/create-ic-fixed-rate-contract/`.
+1. Open a command-line window and navigate to to the sample folder `samples/create-ic-fixed-rate-contract/`.
 2. Run `npm install`.
 3. Then run `npm run setup`.
 
