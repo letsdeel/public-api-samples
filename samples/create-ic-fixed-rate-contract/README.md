@@ -53,48 +53,47 @@ More info:
 
 ## Prerequisites
 
-- A Deel API Token. You can generate a new token following the instructions in [API tokens](https://developer.deel.com/docs/api-tokens-1).
+- A Deel API token. You can generate a new token following the instructions in [API tokens](https://developer.deel.com/docs/api-tokens-1).
 - [Node.js](https://nodejs.org/en/download/package-manager) v18+.
 
 ## Installing the dependencies
 
 After installing Node.js and retrieving a valid token, you can install the dependencies:
 
-1. Open a command-line window and navigate to to the sample folder `samples/create-ic-fixed-rate-contract/`.
+1. Open a command-line window and navigate to to the sample directory `samples/create-ic-fixed-rate-contract/`.
 2. Run `npm install`.
 3. Then run `npm run setup`.
 
 ## Environment variables
 
 - `API_HOST` - Deel API URL that is used by application.
-  - By default, we're using https://api-sandbox.demo.deel.com.
-- `API_TOKEN` - Deel API Token mentioned in [Prerequisites](#prerequisites).
+  - By default, we're using `https://api-sandbox.demo.deel.com`.
+- `API_TOKEN` - Deel API token mentioned in [Prerequisites](#prerequisites).
   - The token should be generated in the same environment used by `API_HOST`.
 
 ## Configure environment variables
 
-- Save API Token generated to **`API_TOKEN`** in **`/server/.env`**
+- Save the API token generated in the variable `API_TOKEN` in `/server/.env`
 
 ## How to run the project locally
 
-### Manual
+### Manually
 
-1. Navigate to project folder `samples/create-ic-fixed-rate-contract/client`.
-2. Run `npm run start`.
-3. Navigate to the server directory with `samples/create-ic-fixed-rate-contract/client` and run `npm run start`.
+1. Navigate to project directory `samples/create-ic-fixed-rate-contract/client` and run `npm run start`.
+2. Navigate to the server directory with `samples/create-ic-fixed-rate-contract/client` and run `npm run start`.
 
 A browser should open automatically at `http://localhost:3098`.
 
 ### Using scripts
 
-1. Navigate to the application folder: `create-ic-fixed-rate-contract`.
+1. Navigate to the application directory `samples/create-ic-fixed-rate-contract`.
 2. Run `npm run start`.
 
 A browser should open automatically at `http://localhost:3098`.
 
 ## Code samples
 
-Making a `POST` request to `/rest/v2/contracts` to create new contract.
+### `POST` request to `/rest/v2/contracts` to create a new contract
 
 ```javascript
 const getHeaders = () => ({
@@ -117,7 +116,7 @@ app.post('/api/contracts', async (req, res) => {
 });
 ```
 
-Making a `POST` request to `/rest/v2/contracts/:id/signatures` to sign a contract.
+### `POST` request to `/rest/v2/contracts/:id/signatures` to sign a contract
 
 ```javascript
   const payload = {
