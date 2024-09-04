@@ -14,7 +14,7 @@ The app has 2 projects:
 This page showcases how to create an individual contractor fixed-rate contract. It only includes the required fields to make the API call successfully. To create a contract:
 
 1. Fill all the fields.
-2. Click **Create contract** button.
+2. Click **Create contract**.
 
 If the call is successful and alert will be displayed with the Contract ID. Make a note of it, because you can use that to sign the contract and invite the contractor to sign it.
 
@@ -28,7 +28,7 @@ More info:
 This page showcases how to sign a contract that was previously created. It only includes the required fields to make the API call successfully. To sign the contract:
 
 1. Fill all the fields.
-2. Click **Sign contract**
+2. Click **Sign contract**.
 
 If the call is successful an alert will be displayed.
 
@@ -130,7 +130,8 @@ app.post('/api/contracts', async (req, res) => {
   res.json(response.data);
 ```
 
-Performing `POST` **`/rest/v2/contracts/:id/invitations`** request to invite a contractor
+### `POST` request to `/rest/v2/contracts/:id/invitations` to invite a contractor
+
 ```javascript
   const payload = {
       data: {
