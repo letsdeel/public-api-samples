@@ -53,8 +53,8 @@ More info:
 
 ## Prerequisites
 
-- A Deel API Token. You can generate a new token following [this tutorial](https://developer.deel.com/docs/api-tokens-1).
-- [Node.js](https://nodejs.org/en/download/package-manager) v18+
+- A Deel API Token. You can generate a new token following the instructions in [API tokens](https://developer.deel.com/docs/api-tokens-1).
+- [Node.js](https://nodejs.org/en/download/package-manager) v18+.
 
 ## Installing the dependencies
 
