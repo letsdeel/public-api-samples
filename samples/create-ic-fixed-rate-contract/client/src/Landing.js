@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 function Landing() {
   return (    
     <div className='landing'>
-      <h1>Create IC fixed-rate contract sample app</h1>
-      <p>This app showcases how to create a contract, sign a contract or invite a contractor using Deel's API. </p>
+      <h1>Create an Individual Contractor fixed-rate contract</h1>
+      <p>This app showcases how to create a fixed-rate contract, sign it, and then invite a contractor to sign it using the Deel API.</p>
       <ul>
         <li><Link to='/create'>Create a contract</Link></li>
         <li><Link to='/sign'>Sign a contract</Link></li>
