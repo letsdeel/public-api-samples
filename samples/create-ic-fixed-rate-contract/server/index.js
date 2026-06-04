@@ -8,22 +8,23 @@ app.use(cors());
 
 const getHeaders = () => ({
     'Authorization': `Bearer ${process.env.API_TOKEN}`,
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Version': process.env.API_VERSION || '2026-01-01'
 });
 
 app.get('/api/data', async (req, res) => {
-    const legalEntitiesResponse = await axios.get(`${process.env.API_HOST}/rest/v2/legal-entities`, {
+    const legalEntitiesResponse = await axios.get(`${process.env.API_HOST}/rest/legal-entities`, {
         headers: getHeaders(),
     });
 
-    const teamsReponse = await axios.get(`${process.env.API_HOST}/rest/v2/teams`, {
+    const teamsReponse = await axios.get(`${process.env.API_HOST}/rest/teams`, {
         headers: getHeaders(),
     });
 
-    const jobTitlesReponse = await axios.get(`${process.env.API_HOST}/rest/v2/lookups/job-titles`, {
+    const jobTitlesReponse = await axios.get(`${process.env.API_HOST}/rest/lookups/job-titles`, {
         headers: getHeaders(),
     });
-    const senioritiesReponse = await axios.get(`${process.env.API_HOST}/rest/v2/lookups/seniorities`, {
+    const senioritiesReponse = await axios.get(`${process.env.API_HOST}/rest/lookups/seniorities`, {
         headers: getHeaders(),
     });
 
@@ -89,7 +90,7 @@ app.post('/api/contracts', async (req, res) => {
     };
     
     try {
-        const response = await axios.post(`${process.env.API_HOST}/rest/v2/contracts`, payload, {
+        const response = await axios.post(`${process.env.API_HOST}/rest/contracts`, payload, {
             headers: getHeaders(),
         });
         res.json(response.data.data);
@@ -105,7 +106,7 @@ app.post('/api/contracts/:id/signatures', async (req, res) => {
                 ...req.body
             }
         };
-        const response = await axios.post(`${process.env.API_HOST}/rest/v2/contracts/${req.params.id}/signatures`, payload, {
+        const response = await axios.post(`${process.env.API_HOST}/rest/contracts/${req.params.id}/signatures`, payload, {
             headers: getHeaders(),
         });
         res.json(response.data);
@@ -121,7 +122,7 @@ app.post('/api/contracts/:id/invitations', async (req, res) => {
                 ...req.body
             }
         };
-        const response = await axios.post(`${process.env.API_HOST}/rest/v2/contracts/${req.params.id}/invitations`, payload, {
+        const response = await axios.post(`${process.env.API_HOST}/rest/contracts/${req.params.id}/invitations`, payload, {
             headers: getHeaders(),
         });
         res.json(response.data);

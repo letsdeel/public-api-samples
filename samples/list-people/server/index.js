@@ -8,17 +8,18 @@ app.use(cors());
 
 const getHeaders = () => ({
     'Authorization': `Bearer ${process.env.API_TOKEN}`,
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Version': process.env.API_VERSION || '2026-01-01'
 });
 app.get('/api/people', async (_, res) => {
-    const response = await axios.get(`${process.env.API_HOST}/rest/v2/people`, {
+    const response = await axios.get(`${process.env.API_HOST}/rest/people`, {
         headers: getHeaders()
     });
     res.json(response.data);
 });
 
 app.get('/api/people/:id', async (req, res) => {
-    const response = await axios.get(`${process.env.API_HOST}/rest/v2/people/${req.params.id}`, {
+    const response = await axios.get(`${process.env.API_HOST}/rest/people/${req.params.id}`, {
         headers: getHeaders()
     });
     res.json(response.data);

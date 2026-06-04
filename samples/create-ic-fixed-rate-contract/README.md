@@ -70,6 +70,8 @@ After installing Node.js and retrieving a valid token, you can install the depen
   - By default, we're using `https://api-sandbox.demo.deel.com`.
 - `API_TOKEN` - Deel API token mentioned in [Prerequisites](#prerequisites).
   - The token should be generated in the same environment used by `API_HOST`.
+- `API_VERSION` - Deel API version date used in the `X-Version` header.
+  - Defaults to `2026-01-01` if not set.
 
 ## Configure environment variables
 
@@ -93,12 +95,13 @@ A browser should open automatically at `http://localhost:3098`.
 
 ## Code samples
 
-### `POST` request to `/rest/v2/contracts` to create a new contract
+### `POST` request to `/rest/contracts` to create a new contract
 
 ```javascript
 const getHeaders = () => ({
     'Authorization': `Bearer ${process.env.API_TOKEN}`,
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Version': process.env.API_VERSION || '2026-01-01'
 });
 app.post('/api/contracts', async (req, res) => {
     const payload = {
@@ -106,7 +109,7 @@ app.post('/api/contracts', async (req, res) => {
     };
     
     try {
-        const response = await axios.post(`${process.env.API_HOST}/rest/v2/contracts`, payload, {
+        const response = await axios.post(`${process.env.API_HOST}/rest/contracts`, payload, {
             headers: getHeaders(),
         });
         res.json(response.data.data);
@@ -116,7 +119,7 @@ app.post('/api/contracts', async (req, res) => {
 });
 ```
 
-### `POST` request to `/rest/v2/contracts/:id/signatures` to sign a contract
+### `POST` request to `/rest/contracts/:id/signatures` to sign a contract
 
 ```javascript
   const payload = {
@@ -124,13 +127,13 @@ app.post('/api/contracts', async (req, res) => {
           ...req.body
       }
   };
-  const response = await axios.post(`${process.env.API_HOST}/rest/v2/contracts/${req.params.id}/signatures`, payload, {
+  const response = await axios.post(`${process.env.API_HOST}/rest/contracts/${req.params.id}/signatures`, payload, {
       headers: getHeaders(),
   });
   res.json(response.data);
 ```
 
-### `POST` request to `/rest/v2/contracts/:id/invitations` to invite a contractor
+### `POST` request to `/rest/contracts/:id/invitations` to invite a contractor
 
 ```javascript
   const payload = {
@@ -138,7 +141,7 @@ app.post('/api/contracts', async (req, res) => {
           ...req.body
       }
   };
-  const response = await axios.post(`${process.env.API_HOST}/rest/v2/contracts/${req.params.id}/invitations`, payload, {
+  const response = await axios.post(`${process.env.API_HOST}/rest/contracts/${req.params.id}/invitations`, payload, {
       headers: getHeaders(),
   });
   res.json(response.data);
