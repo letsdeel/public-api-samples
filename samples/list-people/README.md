@@ -67,7 +67,7 @@ app.get('/api/people', async (_, res) => {
 });
 ```
 
-### `GET` request to`rest/people/:id` to retrieve the details of a specific person
+### `GET` request to `rest/people/:id` to retrieve the details of a specific person
 
 ```javascript
 const getHeaders = () => ({
